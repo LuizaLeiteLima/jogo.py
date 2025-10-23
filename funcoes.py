@@ -68,17 +68,22 @@ def afundados (frota,tabuleiro):
     return mortos
 
 def posicao_valida (frota,linha, coluna, orientacao, tamanho):
-    ocupadas =[]
-    for elem in frota.keys():
-        for o in frota[elem]:
-            for l in o:
-                v,k = l
-                if v or k > 9:
-                    return False
-                if l in ocupadas:
-                    return False
-                else:
-                    ocupadas.append(l)
+    x,y = linha,coluna
+    pos = [[x,y]]
+    for i in range(tamanho):
+        if orientacao == 'horizontal':
+            pos.append([(x+(i+1)),y])
+        else:
+            pos.append([x,(y+(i+1))])
+        pos.append([])
+        for elem in frota.keys():
+            for o in frota[elem]:
+                for l in o:
+                    v,k = l
+                    if v or k > 9:
+                        return False
+                    if l in pos:
+                        return False
     return True
                 
 
