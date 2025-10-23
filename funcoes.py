@@ -73,12 +73,12 @@ def posicao_valida (frota,linha, coluna, orientacao, tamanho):
         for o in frota[elem]:
             for l in o:
                 v,k = l
-                if v or k >= 10:
+                if v or k > 9:
                     return False
-                if o in ocupadas:
+                if l in ocupadas:
                     return False
                 else:
-                    ocupadas.append(o)
+                    ocupadas.append(l)
     return True
                 
 
