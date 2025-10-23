@@ -63,7 +63,7 @@ def afundados (frota,tabuleiro):
             for v,k in o:
                 if tabuleiro[v][k] == 'X':
                     contador += 1
-                    if contador == len():
+                    if contador == len(o):
                         mortos += 1
     return mortos
             
