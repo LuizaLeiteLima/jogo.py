@@ -37,4 +37,14 @@ def faz_jogada (tabuleiro,linha,coluna):
 
     return tabuleiro
 
+def posiciona_frota (tabuleiro,frota):
+    
+    for elem in frota.keys:
+        for v in frota[elem]:
+            for elem1 in v:
+                x,y= elem1
+                tabuleiro[x][y] = 1
+
+    return tabuleiro
+
 
