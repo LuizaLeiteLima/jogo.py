@@ -59,11 +59,12 @@ def afundados (frota,tabuleiro):
 
     for elem in frota.keys():
         contador = 0
-        for v,k in frota[elem]:
-            if tabuleiro[v][k] == 'X':
-               contador += 1
-               if contador == len(elem):
-                   mortos += 1
+        for o in frota[elem]:
+            for v,k in o:
+                if tabuleiro[v][k] == 'X':
+                    contador += 1
+                    if contador == len():
+                        mortos += 1
     return mortos
             
 
