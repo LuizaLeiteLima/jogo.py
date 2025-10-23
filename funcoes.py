@@ -43,10 +43,10 @@ def posiciona_frota (frota):
     
     for i in range(10):
         t = []
-        for i in range(10):
+        for o in range(10):
             t.append(0)
         tabuleiro.append(t)
-    for elem in frota.keys:
+    for elem in frota.keys():
         for v in frota[elem]:
             for elem1 in v:
                 x,y= elem1
