@@ -54,4 +54,17 @@ def posiciona_frota (frota):
 
     return tabuleiro
 
+def afundados (frota,tabuleiro):
+    mortos = 0
+
+    for elem in frota.keys():
+        contador = 0
+        for v,k in frota[elem]:
+            if tabuleiro[v][k] == 'X':
+               contador += 1
+               if contador == len(elem):
+                   mortos += 1
+    return mortos
+            
+
 
