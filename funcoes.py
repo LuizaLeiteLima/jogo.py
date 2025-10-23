@@ -1,7 +1,7 @@
 def define_posicoes(linha, coluna, orientacao, tamanho):
     i = 0
     posicao = []
-    while i < tamanho + 1:
+    while i < tamanho :
         u = []
         if orientacao == "vertical":
             u.append(linha)
@@ -14,12 +14,16 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
         i = i + 1
         posicao.append(u)
     return posicao
-    
-linha = 2
-coluna = 4
-orientacao = "vertical"
-tamanho = 3
+   
+def preenche_frota (frota,nome, linha, coluna, orientacao, tamanho):
 
-print(define_posicoes(linha, coluna, orientacao, tamanho))
-        
+    o = define_posicoes(linha, coluna, orientacao, tamanho)
+
+
+    if nome in frota:
+        frota[nome].append(o)
+    else:
+        frota[nome] = [o]
+
+    return frota
 
