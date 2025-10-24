@@ -74,7 +74,7 @@ def posicao_valida (frota,linha, coluna, orientacao, tamanho):
         if orientacao == 'horizontal':
             pos.append([x,y+i])
         else:
-            pos.append([x+1,y])
+            pos.append([x+i,y])
         for elem in frota.keys():
             for o in frota[elem]:
                 for l in o:
