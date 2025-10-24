@@ -70,6 +70,8 @@ def afundados (frota,tabuleiro):
 def posicao_valida (frota,linha, coluna, orientacao, tamanho):
     x,y = linha,coluna
     pos = []
+    if len(frota) == 0:
+        return False
     for i in range(tamanho):
         if orientacao == 'horizontal':
             pos.append([x,y+i])
