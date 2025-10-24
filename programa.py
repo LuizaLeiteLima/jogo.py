@@ -35,6 +35,7 @@ for nome in frota.keys():
 
         if posicao_valida(frota, linha, coluna, orientacao, tamanho) == False:
             print("Esta posição não está válida!")
+            print(f"Insira as informações referentes ao navio {nome} que possui tamanho {tamanho}")
             linha = int(input("coloque a linha:"))
             coluna = int(input("coloque a coluna:"))
             if nome != "submarino":
