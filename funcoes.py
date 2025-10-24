@@ -79,7 +79,7 @@ def posicao_valida (frota,linha, coluna, orientacao, tamanho):
             for o in frota[elem]:
                 for l in o:
                     v,k = l
-                    if 0 > v > 9 or 0 > k > 9:
+                    if 0 <= v > 9 or 0 <= k > 9:
                         return False
                     if [v,k] in pos:
                         return False
