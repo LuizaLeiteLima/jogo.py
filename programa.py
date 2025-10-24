@@ -29,7 +29,7 @@ for nome in frota.keys():
         coluna = int(input("coloque a coluna:"))
     if posicao_valida == False:
         if define_posicoes(linha, coluna, orientacao, tamanho):
-           frota=  preenche_frota(frota,nome, linha, coluna, orientacao, tamanho)
+           frota[nome]= frota.append(preenche_frota(frota,nome, linha, coluna, orientacao, tamanho))
         i += 1
         tamanho += 1
     print(frota)
