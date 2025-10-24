@@ -69,19 +69,19 @@ def afundados (frota,tabuleiro):
 
 def posicao_valida (frota,linha, coluna, orientacao, tamanho):
     x,y = linha,coluna
-    pos = [[x,y]]
+    pos = []
     for i in range(tamanho):
         if orientacao == 'horizontal':
-            pos.append([(x+(i+1)),y])
+            pos.append([x,y+i])
         else:
-            pos.append([x,(y+(i+1))])
+            pos.append([x+1,y])
         for elem in frota.keys():
             for o in frota[elem]:
                 for l in o:
                     v,k = l
                     if v > 9 or k > 9:
                         return False
-                    if l in pos:
+                    if [v,k] in pos:
                         return False
     return True
                 
