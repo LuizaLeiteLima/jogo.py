@@ -9,46 +9,34 @@ frota = {
     "submarino": [],
 }  
 
-navio = {
-    "porta-aviões": 4,
-    "navio-tanque": 3,
-    "contratorpedeiro": 2,
-    "submarino": 1,
-}  
 
+for nome in frota.keys():
+    if nome == 'porta-aviões':
+        print(f"Insira as informações referentes ao navio {nome} que possui tamanho4")
+        linha = int(input('Linha: '))
+        coluna = int(input('Coluna: '))
+        orientação = int(input('[1] Vertical [2] Horizontal >'))
 
-i = 0
+    elif nome == 'navio-tanque':
+        for e in range(2):
+            print(f'Insira as informações referentes ao navio {nome} que possui tamanho 3')
+            linha = int(input('Linha: '))
+            coluna = int(input('Coluna: '))
+            orientação = int(input('[1] Vertical [2] Horizontal >'))
 
-for nome, tamanho in frota.items():
-    linha = int(input("coloque a linha:"))
-    coluna = int(input("coloque a coluna:"))
-    orientacao = int(input("coloque a orientação:"))
-
-    if nome == "submarino":
-        pass
-    else:
-        if orientacao == 1:
-            orientacao = 'vertical'
-        else:
-            orientacao = 'horizontal'
-
-
-
-    print(f"Insira as informações referentes ao navio {nome} que possui tamanho {tamanho} ")
-
-    # if posicao_valida == False:
-    #     print("Esta posição não está válida!")
-    #     linha = int(input("coloque a linha:"))
-    #     coluna = int(input("coloque a coluna:"))
-    # if posicao_valida == True:
-    #     if define_posicoes(linha, coluna, orientacao, tamanho):
-    #        frota[nome] = preenche_frota(frota,nome, linha, coluna, orientacao, tamanho).append(define_posicoes(linha, coluna, orientacao, tamanho))
-    #        linha = int(input("coloque a linha:"))
-    #        coluna = int(input("coloque a coluna:"))
-    #        i += 1
-    #        tamanho += 1
-
-    if posicao_valida(frota, linha, coluna, orientacao, tamanho) == False:
+    elif nome == 'contratorpedeiro':
+        for e in range(3):
+            print(f'Insira as informações referentes ao navio {nome} que possui tamanho 2')
+            linha = int(input('Linha: '))
+            coluna = int(input('Coluna: '))
+            orientação = int(input('[1] Vertical [2] Horizontal >'))
+    elif nome == 'submarino':
+        for e in range(4):
+            print(f'Insira as informações referentes ao navio {nome} que possui tamanho 1')
+            linha = int(input('Linha: '))
+            coluna = int(input('Coluna: '))
+        orientação = 1
+    elif posicao_valida(frota, linha, coluna, orientacao, tamanho) == False:
         print("Esta posição não está válida!")
         linha = int(input("coloque a linha:"))
         coluna = int(input("coloque a coluna:"))
@@ -57,6 +45,6 @@ for nome, tamanho in frota.items():
            frota = preenche_frota(frota,nome, linha, coluna, orientacao, tamanho)
            linha = int(input("coloque a linha:"))
            coluna = int(input("coloque a coluna:"))
-           i += 1
-
+           
+           
 print(frota)
