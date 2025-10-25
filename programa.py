@@ -87,9 +87,8 @@ while jogando:
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
 
         if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
-            print('Parabéns! Você derrubou todos os navios do seu oponente!')
-            jogando = False 
-    
+            print("Parabéns! Você derrubou todos os navios do seu oponente!")
+            jogando = False
 
 
 
