@@ -67,11 +67,10 @@ tabuleiro_oponente = posiciona_frota(frota_oponente)
 tabuleiro_jogador = posiciona_frota(frota_oponente)
 
 
+jogadas = []
+while jogando:
 
-while tabuleiro_oponente = 
-
-    monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
-    jogadas = []
+    print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
     linha = int(input("qual linha ataca:"))
     coluna = int(input("qual coluna ataca:"))
     while linha < 0 or linha > 9 :
@@ -79,11 +78,16 @@ while tabuleiro_oponente =
         linha = int(input("qual linha ataca:"))
     while coluna < 0 or coluna > 9 :
         print("Coluna inválida!")
+        coluna = int(input("qual coluna ataca:"))
     if [linha,coluna] in jogadas:
         print(f"A posição linha {linha} e coluna {coluna} já foi informada anteriormente!")
     else:  
         jogadas.append([linha,coluna])
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
+
+    if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
+        print("Parabéns! Você derrubou todos os navios do seu oponente!")
+    
 
 
 
