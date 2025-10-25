@@ -100,7 +100,7 @@ while True:
             print(f"Seu oponente está atacando na linha {linha_o} e coluna {coluna_o}")
             break
 
-    if afundados(frota, tabuleiro_jogador) == len(frota):
+    if afundados(frota, tabuleiro_jogador) == 10:
         print("O oponente afundou todos os seus navios!")
         break
 
