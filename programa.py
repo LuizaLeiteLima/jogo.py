@@ -70,8 +70,6 @@ jogadas = []
 jogando = True
 
 while jogando:
-    print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
-
     linha = int(input("Jogador, qual linha deseja atacar? "))
     while linha < 0 or linha > 9:
         print("Linha inválida!")
@@ -91,5 +89,5 @@ while jogando:
         if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
             print("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
-
+            print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
