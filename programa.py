@@ -66,7 +66,7 @@ frota_oponente = {
 tabuleiro_oponente = posiciona_frota(frota_oponente)
 tabuleiro_jogador = posiciona_frota(frota_oponente)
 
-
+jogando = True
 jogadas = []
 while jogando:
 
@@ -87,6 +87,7 @@ while jogando:
 
     if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
         print("Parabéns! Você derrubou todos os navios do seu oponente!")
+        jogando = False
     
 
 
