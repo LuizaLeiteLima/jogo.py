@@ -86,7 +86,7 @@ while jogando:
         jogadas.append([linha, coluna])
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
 
-        if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
+        if afundados(frota_oponente, tabuleiro_oponente) == 10:
             print("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
             print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
