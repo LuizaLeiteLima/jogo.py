@@ -68,7 +68,7 @@ tabuleiro_jogador = posiciona_frota(frota_oponente)
 
 
 
-while tabuleiro_oponente 
+while tabuleiro_oponente = 
 
     monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
     jogadas = []
