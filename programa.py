@@ -42,6 +42,8 @@ for nome in frota.keys():
                 frota = preenche_frota(frota, nome, linha, coluna, orientacao, tamanho)
                 f = True
 
+import random
+
 frota_oponente = {
     'porta-aviões': [
         [[9, 1], [9, 2], [9, 3], [9, 4]]
@@ -66,10 +68,9 @@ frota_oponente = {
 tabuleiro_oponente = posiciona_frota(frota_oponente)
 tabuleiro_jogador = posiciona_frota(frota)
 
-jogadas = []
-jogando = True
+print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
-while jogando:
+while True:
     linha = int(input("Jogador, qual linha deseja atacar? "))
     while linha < 0 or linha > 9:
         print("Linha inválida!")
@@ -80,14 +81,29 @@ while jogando:
         print("Coluna inválida!")
         coluna = int(input("Jogador, qual coluna deseja atacar? "))
 
-    if [linha, coluna] in jogadas:
+    if tabuleiro_oponente[linha][coluna] == '-' or tabuleiro_oponente[linha][coluna] == 'X':
         print(f"A posição linha {linha} e coluna {coluna} já foi informada anteriormente!")
+        continue
     else:
-        jogadas.append([linha, coluna])
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
 
-        if afundados(frota_oponente, tabuleiro_oponente) == 10:
-            print("Parabéns! Você derrubou todos os navios do seu oponente!")
-            jogando = False
-            print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
+    if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
+        print("Parabéns! Você derrubou todos os navios do seu oponente!")
+        break
+    else:
+        while True:
+            linha_o = random.randint(0, 9)
+            coluna_o = random.randint(0, 9)
+            if tabuleiro_jogador[linha_o][coluna_o] == '-' or tabuleiro_jogador[linha_o][coluna_o] == 'X':
+                continue
+            tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linha_o, coluna_o)
+            print(f"Seu oponente está atacando na linha {linha_o} e coluna {coluna_o}")
+            break
+
+    if afundados(frota, tabuleiro_jogador) == len(frota):
+        print("O oponente afundou todos os seus navios!")
+        break
+
+    print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
+
 
