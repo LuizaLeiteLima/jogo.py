@@ -68,21 +68,22 @@ tabuleiro_jogador = posiciona_frota(frota_oponente)
 
 
 
-while jogando:
+while tabuleiro_oponente 
 
-    def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
-    texto = ''
-    texto += '   0  1  2  3  4  5  6  7  8  9         0  1  2  3  4  5  6  7  8  9\n'
-    texto += '_______________________________      _______________________________\n'
-
-    for linha in range(len(tabuleiro_jogador)):
-        jogador_info = '  '.join([str(item) for item in tabuleiro_jogador[linha]])
-        oponente_info = '  '.join([info if str(info) in 'X-' else '0' for info in tabuleiro_oponente[linha]])
-        texto += f'{linha}| {jogador_info}|     {linha}| {oponente_info}|\n'
-    return texto
-
-    
-
+    monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
+    jogadas = []
+    linha = int(input("qual linha ataca:"))
+    coluna = int(input("qual coluna ataca:"))
+    while linha < 0 or linha > 9 :
+        print('Linha inválida!')
+        linha = int(input("qual linha ataca:"))
+    while coluna < 0 or coluna > 9 :
+        print("Coluna inválida!")
+    if [linha,coluna] in jogadas:
+        print(f"A posição linha {linha} e coluna {coluna} já foi informada anteriormente!")
+    else:  
+        jogadas.append([linha,coluna])
+        tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
 
 
 
