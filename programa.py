@@ -67,43 +67,38 @@ frota_oponente = {
 
 tabuleiro_oponente = posiciona_frota(frota_oponente)
 tabuleiro_jogador = posiciona_frota(frota)
-
 print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
-
 while True:
-    linha = int(input("Jogador, qual linha deseja atacar? "))
+    linha = int(input('qual linha ataca:'))
     while linha < 0 or linha > 9:
-        print("Linha inválida!")
-        linha = int(input("Jogador, qual linha deseja atacar? "))
-
-    coluna = int(input("Jogador, qual coluna deseja atacar? "))
+        print('Linha inválida!')
+        linha = int(input('qual linha ataca:'))
+    coluna = int(input('qual coluna ataca: '))
     while coluna < 0 or coluna > 9:
-        print("Coluna inválida!")
-        coluna = int(input("Jogador, qual coluna deseja atacar? "))
-
+        print('Coluna inválida!')
+        coluna = int(input('qual coluna ataca:'))
     if tabuleiro_oponente[linha][coluna] == '-' or tabuleiro_oponente[linha][coluna] == 'X':
-        print(f"A posição linha {linha} e coluna {coluna} já foi informada anteriormente!")
+        print(f'A posição linha {linha} e coluna {coluna} já foi informada anteriormente!')
         continue
     else:
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha, coluna)
-
-    if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
-        print("Parabéns! Você derrubou todos os navios do seu oponente!")
+    if afundados(frota_oponente, tabuleiro_oponente) == 10:
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
         break
     else:
-        while True:
-            linha_o = random.randint(0, 9)
-            coluna_o = random.randint(0, 9)
-            if tabuleiro_jogador[linha_o][coluna_o] == '-' or tabuleiro_jogador[linha_o][coluna_o] == 'X':
+        while True: 
+            linha1 = random.randint(0, 9)
+            coluna2 = random.randint(0, 9)
+            if tabuleiro_jogador[linha1][coluna2] == '-' or tabuleiro_jogador[linha1][coluna2] == 'X':
                 continue
-            tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linha_o, coluna_o)
-            print(f"Seu oponente está atacando na linha {linha_o} e coluna {coluna_o}")
+            tabuleiro_jogador = faz_jogada(tabuleiro_jogador, linha1, coluna2)
+            print(f"Seu oponente está atacando na linha {linha1} e coluna {coluna2}")
             break
 
     if afundados(frota, tabuleiro_jogador) == 10:
-        print("O oponente afundou todos os seus navios!")
+        print("o oponente derrubo suas frotas")
         break
-
+    
     print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
 
